@@ -1,16 +1,24 @@
+/* ============================================================
+   Estilos Globais — FESF-SUS
+   Define a identidade visual do sistema inteiro:
+   cores, tipografia, componentes reutilizáveis
+   ============================================================ */
+
+/* Variáveis de cor — altere aqui para mudar o tema todo */
 :root {
-  --verde: #007A5E;
-  --verde-claro: #00A87A;
-  --azul: #003F88;
+  --verde: #007A5E;           /* cor principal de ação */
+  --verde-claro: #00A87A;     /* hover dos botões verdes */
+  --azul: #003F88;            /* cor da navegação e títulos */
   --branco: #FFFFFF;
-  --cinza-fundo: #F4F6F9;
-  --cinza-borda: #DDE3EC;
-  --texto: #1A2340;
-  --texto-suave: #5A6478;
-  --erro: #D64045;
-  --sucesso: #2E9E6B;
+  --cinza-fundo: #F4F6F9;     /* fundo da página */
+  --cinza-borda: #DDE3EC;     /* bordas de cards e inputs */
+  --texto: #1A2340;           /* cor principal do texto */
+  --texto-suave: #5A6478;     /* texto secundário e labels */
+  --erro: #D64045;            /* alertas de erro */
+  --sucesso: #2E9E6B;         /* alertas de sucesso */
 }
 
+/* Reset básico — remove margens e paddings padrão do navegador */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -19,6 +27,7 @@ body {
   color: var(--texto);
 }
 
+/* ---- Barra de navegação ---- */
 nav {
   background: var(--azul);
   padding: 0 2rem;
@@ -54,16 +63,19 @@ nav {
 }
 .nav-links a:hover { color: white; }
 
+/* ---- Área de conteúdo principal ---- */
 main {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
 
+/* ---- Tipografia ---- */
 h1 { font-size: 1.8rem; color: var(--azul); margin-bottom: 0.5rem; }
 h2 { font-size: 1.3rem; color: var(--azul); margin-bottom: 1rem; }
 p.subtitulo { color: var(--texto-suave); margin-bottom: 1.5rem; }
 
+/* ---- Card — container branco com sombra ---- */
 .card {
   background: white;
   border-radius: 12px;
@@ -73,6 +85,7 @@ p.subtitulo { color: var(--texto-suave); margin-bottom: 1.5rem; }
   margin-bottom: 1.5rem;
 }
 
+/* ---- Botões ---- */
 .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
@@ -82,6 +95,7 @@ p.subtitulo { color: var(--texto-suave); margin-bottom: 1.5rem; }
   font-size: 0.95rem;
   font-weight: 600;
   transition: all 0.2s;
+  text-decoration: none;
 }
 .btn-primary { background: var(--verde); color: white; }
 .btn-primary:hover { background: var(--verde-claro); }
@@ -89,6 +103,7 @@ p.subtitulo { color: var(--texto-suave); margin-bottom: 1.5rem; }
 .btn-danger:hover { opacity: 0.85; }
 .btn-secondary { background: var(--cinza-borda); color: var(--texto); }
 
+/* ---- Campos de formulário ---- */
 input, select, textarea {
   width: 100%;
   padding: 0.65rem 0.9rem;
@@ -101,15 +116,31 @@ input, select, textarea {
   outline: none;
   transition: border 0.2s;
 }
+/* Destaca o campo quando selecionado */
 input:focus, select:focus { border-color: var(--verde); }
 
-label { display: block; font-weight: 600; font-size: 0.875rem; margin-bottom: 0.35rem; color: var(--texto-suave); }
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.35rem;
+  color: var(--texto-suave);
+}
 
+/* ---- Tabela de listagem ---- */
 table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-th { background: var(--cinza-fundo); color: var(--texto-suave); font-weight: 600; padding: 0.75rem 1rem; text-align: left; border-bottom: 2px solid var(--cinza-borda); }
+th {
+  background: var(--cinza-fundo);
+  color: var(--texto-suave);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--cinza-borda);
+}
 td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--cinza-borda); }
-tr:hover td { background: #f8fafc; }
+tr:hover td { background: #f8fafc; } /* destaque ao passar o mouse */
 
+/* ---- Badge colorido ---- */
 .badge {
   display: inline-block;
   padding: 0.2rem 0.7rem;
@@ -119,6 +150,7 @@ tr:hover td { background: #f8fafc; }
 }
 .badge-verde { background: #d4f5e9; color: var(--sucesso); }
 
+/* ---- Hero — banner da página inicial ---- */
 .hero {
   background: linear-gradient(135deg, var(--azul) 0%, var(--verde) 100%);
   color: white;
@@ -130,11 +162,24 @@ tr:hover td { background: #f8fafc; }
 .hero h1 { color: white; font-size: 2.2rem; }
 .hero p { color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-top: 0.5rem; }
 
+/* ---- Grid de 3 colunas para os cards de estatísticas ---- */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.stat-card { background: white; border-radius: 12px; padding: 1.25rem; border: 1px solid var(--cinza-borda); text-align: center; }
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid var(--cinza-borda);
+  text-align: center;
+}
 .stat-numero { font-size: 2.5rem; font-weight: 800; color: var(--verde); }
 .stat-label { color: var(--texto-suave); font-size: 0.9rem; margin-top: 0.25rem; }
 
-.alert { padding: 0.75rem 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem; }
+/* ---- Alertas de feedback ---- */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
 .alert-sucesso { background: #d4f5e9; color: var(--sucesso); border: 1px solid #a8e6cf; }
 .alert-erro { background: #fde8e8; color: var(--erro); border: 1px solid #f5c6c6; }
